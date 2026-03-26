@@ -1,0 +1,71 @@
+
+> clinica@0.0.0 build
+> tsc -b && vite build
+
+vite v8.0.2 building client environment for production...
+[2Ktransforming...✓ 21 modules transformed.
+✗ Build failed in 251ms
+error during build:
+Build failed with 1 error:
+
+[plugin @tailwindcss/vite:generate:build] /home/fernando/Documents/develop/www/lelio/clinica_spa/src/index.css
+Error: Can't resolve 'tw-animate-css' in '/home/fernando/Documents/develop/www/lelio/clinica_spa/src'
+    at finishWithoutResolve (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/Resolver.js:587:18)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/Resolver.js:679:14
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/Resolver.js:740:5
+    at eval (eval at create (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:15:1)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/Resolver.js:740:5
+    at eval (eval at create (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:27:1)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/DescriptionFilePlugin.js:89:43
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/Resolver.js:740:5
+    at eval (eval at create (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:15:1)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/Resolver.js:740:5
+    at eval (eval at create (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:15:1)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/Resolver.js:740:5
+    at eval (eval at create (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:42:1)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/ConditionalPlugin.js:53:42
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/Resolver.js:740:5
+    at eval (eval at create (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:16:1)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/forEachBail.js:39:13
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/ModulesUtils.js:74:12
+    at SyncAsyncFileSystemDecorator.stat (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/SyncAsyncFileSystemDecorator.js:66:34)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/ModulesUtils.js:50:7
+    at next (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/forEachBail.js:35:3)
+    at forEachBail (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/forEachBail.js:49:9)
+    at modulesResolveHandler (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/ModulesUtils.js:42:2)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/ModulesInHierarchicalDirectoriesPlugin.js:36:6
+    at _next0 (eval at create (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:8:1)
+    at eval (eval at create (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:30:1)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/SelfReferencePlugin.js:48:31
+    at Hook.eval [as callAsync] (eval at create (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:22:1)
+    at Resolver.doResolve (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/Resolver.js:737:16)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/ConditionalPlugin.js:42:14
+    at Hook.eval [as callAsync] (eval at create (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:37:1)
+    at Resolver.doResolve (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/Resolver.js:737:16)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/NextPlugin.js:30:14
+    at Hook.eval [as callAsync] (eval at create (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:7:1)
+    at Resolver.doResolve (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/Resolver.js:737:16)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/NextPlugin.js:30:14
+    at Hook.eval [as callAsync] (eval at create (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/tapable/lib/HookCodeFactory.js:31:10), <anonymous>:7:1)
+    at Resolver.doResolve (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/Resolver.js:737:16)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/DescriptionFilePlugin.js:80:17
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/DescriptionFileUtils.js:161:24
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/forEachBail.js:39:13
+    at onJson (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/DescriptionFileUtils.js:96:6)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/DescriptionFileUtils.js:123:7
+    at SyncAsyncFileSystemDecorator.readJson (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/SyncAsyncFileSystemDecorator.js:204:6)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/DescriptionFileUtils.js:104:26
+    at next (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/forEachBail.js:35:3)
+    at forEachBail (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/forEachBail.js:49:9)
+    at findDescriptionFile (/home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/DescriptionFileUtils.js:70:3)
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/DescriptionFileUtils.js:167:12
+    at /home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/enhanced-resolve/lib/forEachBail.js:39:13
+    at aggregateBindingErrorsIntoJsError (file:///home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/rolldown/dist/shared/error-D8cGyrC7.mjs:48:18)
+    at unwrapBindingResult (file:///home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/rolldown/dist/shared/error-D8cGyrC7.mjs:18:128)
+    at #build (file:///home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/rolldown/dist/shared/rolldown-build-CL9PyQ2E.mjs:3313:34)
+    at async buildEnvironment (file:///home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/vite/dist/node/chunks/node.js:32829:64)
+    at async Object.build (file:///home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/vite/dist/node/chunks/node.js:33251:19)
+    at async Object.buildApp (file:///home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/vite/dist/node/chunks/node.js:33248:153)
+    at async CAC.<anonymous> (file:///home/fernando/Documents/develop/www/lelio/clinica_spa/node_modules/vite/dist/node/cli.js:778:3) {
+  errors: [Getter/Setter]
+}
