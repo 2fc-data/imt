@@ -40,7 +40,7 @@ export const Login = () => {
 
         <div className="mt-8 text-center text-sm text-muted-foreground">
           {authData.login.footerText}{" "}
-          <Link to="/#agendamento" className="font-medium text-primary hover:underline hover:text-primary/80 transition-colors">
+          <Link to="/" className="font-medium text-primary hover:underline hover:text-primary/80 transition-colors">
             {authData.login.footerLink}
           </Link>
         </div>

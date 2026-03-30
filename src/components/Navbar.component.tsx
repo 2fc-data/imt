@@ -1,143 +1,226 @@
-import { useState } from "react";
-import { Menu, X, Phone, Sun, Moon, User } from "lucide-react";
-import { Link } from "react-router-dom";
-import { useTheme } from "./theme-provider";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, ChevronDown, Phone, UserCircle, Moon, Sun } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Logo } from "@/components/Logo.component";
+import { Login } from "@/pages/Login";
 
-const navItems = [
-  { label: "Início", href: "#inicio" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Localização", href: "#localizacao" },
-  { label: "Agendamento", href: "#agendamento" },
+const menuItems = [
+  { label: "Início", path: "/" },
+  { label: "Sobre", path: "/sobre" },
+  {
+    label: "Especialidades",
+    path: "/especialidades",
+  },
+  {
+    label: "Atendimentos",
+    path: "",
+    children: [
+      { label: "Harmonização Facial", path: "/harmonizacaoFacial" },
+      { label: "Ortodontia", path: "/ortodontia" },
+      { label: "Odontologia Avançada", path: "/odontologiaAvancada" },
+    ],
+  },
 ];
 
 export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const location = useLocation();
 
-  const handleClick = (href: string) => {
-    setIsOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
-  };
+  const isActive = (path: string) => location.pathname === path;
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
-        <button onClick={() => handleClick("#inicio")} className="font-serif text-xl font-semibold text-primary">
-          Instituto Monaliza Tercetti
-        </button>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
+      <div className="container mx-auto px-4 flex items-center justify-between h-16 lg:h-20">
+        <Logo />
 
-        {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <button
-                onClick={() => handleClick(item.href)}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200"
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex items-center gap-1">
+          {menuItems.map((item) => (
+            <div
+              key={item.label}
+              className="relative"
+              onMouseEnter={() => item.children && setOpenDropdown(item.label)}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <Link
+                to={item.path}
+                className={`px-4 py-2 text-sm font-medium rounded-md transition-colors flex items-center gap-1 ${isActive(item.path)
+                  ? "text-primary bg-primary/10"
+                  : "text-foreground/80 hover:text-primary hover:bg-primary/5"
+                  }`}
               >
                 {item.label}
-              </button>
-            </li>
-          ))}
-          <li>
-            <Link
-              to="/login"
-              className="relative flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
-              title="Acessar conta"
-            >
-              <User className="h-5 w-5" />
-              <span className="sr-only">Acessar conta</span>
-            </Link>
-          </li>
-          <li>
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="relative flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
-              title="Alternar tema"
-            >
-              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Alternar tema</span>
-            </button>
-          </li>
-          <li>
-            <a
-              href="https://wa.me/553597058234?text=Olá! Gostaria de agendar uma consulta."
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Contato via WhatsApp"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-secondary transition-colors duration-200"
-            >
-              <Phone size={14} />
-              Agendar
-            </a>
-          </li>
-        </ul>
+                {item.children && <ChevronDown className="w-3.5 h-3.5" />}
+              </Link>
 
-        {/* Mobile toggle & Theme & User */}
-        <div className="flex items-center gap-2 md:hidden">
-          <Link
-            to="/login"
-            className="relative flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
-            title="Acessar conta"
-          >
-            <User className="h-5 w-5" />
-            <span className="sr-only">Acessar conta</span>
-          </Link>
+              {/* Dropdown */}
+              <AnimatePresence>
+                {item.children && openDropdown === item.label && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 4 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full left-0 mt-1 w-56 bg-card rounded-lg shadow-lg border border-border py-2"
+                  >
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.path}
+                        to={child.path}
+                        className="block px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
           <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="relative flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
+            onClick={() => {
+              const isDark = document.documentElement.classList.toggle("dark");
+              localStorage.setItem("theme", isDark ? "dark" : "light");
+            }}
+            className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
+            aria-label="Alternar tema"
           >
-            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            <span className="sr-only">Alternar tema</span>
-          </button>
-          <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-foreground">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            <Sun className="w-5 h-5 hidden dark:block" />
+            <Moon className="w-5 h-5 block dark:hidden" />
           </button>
         </div>
+
+        {/* Social & Contact */}
+        <div className="hidden lg:flex items-center gap-3 ml-4 pl-4 border-l border-border">
+          <a href="https://instagram.com/dramonalizatercetti" target="_blank" rel="noopener noreferrer" 
+            className="text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors p-2 rounded-full" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-instagram w-5 h-5" aria-hidden="true">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://facebook.com/Monaliza-Tercetti-Pereira-100054277160262/" target="_blank" rel="noopener noreferrer" 
+            className="text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors p-2 rounded-full" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-facebook w-5 h-5" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+          <a href="https://wa.me/553597058234"
+            target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-sm font-medium text-primary hover:opacity-80 transition-opacity p-2 rounded-full hover:bg-primary/5" aria-label="Agendar consulta">
+            <Phone className="w-4 h-4" aria-hidden="true" />
+            <span>Agendar</span>
+          </a>
+          <Link to="/login" className="ml-2 p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors" aria-label="Login">
+            <UserCircle className="w-5 h-5" aria-hidden="true" />
+          </Link>
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="lg:hidden p-2 text-foreground"
+        >
+          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-background border-b border-border animate-fade-in">
-          <ul className="flex flex-col p-4 gap-3">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <button
-                  onClick={() => handleClick(item.href)}
-                  className="w-full text-left py-2 px-3 text-sm font-medium text-muted-foreground hover:text-primary rounded-md hover:bg-muted transition-colors"
-                >
-                  {item.label}
-                </button>
-              </li>
-            ))}
-            <li>
-              <Link
-                to="/login"
-                onClick={() => setIsOpen(false)}
-                className="w-full text-left py-2 px-3 text-sm font-medium text-muted-foreground hover:text-primary rounded-md hover:bg-muted transition-colors flex items-center gap-2"
-              >
-                <User size={16} />
-                Acessar conta
-              </Link>
-            </li>
-            <li>
-              <a
-                href="https://wa.me/553597058234?text=Olá! Gostaria de agendar uma consulta."
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Contato via WhatsApp"
-                className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-4 py-3 rounded-lg text-sm font-medium"
-              >
-                <Phone size={14} />
-                Agendar Consulta
-              </a>
-            </li>
-          </ul>
-        </div>
-      )}
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="lg:hidden bg-card border-b border-border overflow-hidden"
+          >
+            <div className="px-4 py-4 space-y-1">
+              {menuItems.map((item) => (
+                <div key={item.label}>
+                  <Link
+                    to={item.path}
+                    onClick={() => !item.children && setMobileOpen(false)}
+                    className={`block px-3 py-2.5 rounded-md text-sm font-medium ${isActive(item.path)
+                      ? "text-primary bg-primary/10"
+                      : "text-foreground/80"
+                      }`}
+                  >
+                    <span className="flex items-center justify-between">
+                      {item.label}
+                      {item.children && (
+                        <ChevronDown
+                          className="w-4 h-4 cursor-pointer"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setOpenDropdown(openDropdown === item.label ? null : item.label);
+                          }}
+                        />
+                      )}
+                    </span>
+                  </Link>
+                  <AnimatePresence>
+                    {item.children && openDropdown === item.label && (
+                      <motion.div
+                        initial={{ height: 0 }}
+                        animate={{ height: "auto" }}
+                        exit={{ height: 0 }}
+                        className="overflow-hidden pl-4"
+                      >
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.path}
+                            to={child.path}
+                            onClick={() => setMobileOpen(false)}
+                            className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+              {/* Mobile social */}
+              <div className="flex items-center gap-4 px-3 pt-4 mt-2 border-t border-border">
+                <a href="https://instagram.com/dramonalizatercetti" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-primary/5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-instagram w-5 h-5" aria-hidden="true">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                  </svg>
+                </a>
+                <a href="https://facebook.com/Monaliza-Tercetti-Pereira-100054277160262/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-full hover:bg-primary/5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-facebook w-5 h-5" aria-hidden="true">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg>
+                </a>
+                <a href="https://wa.me/553597058234?text=Olá! Gostaria de agendar uma consulta."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-sm font-medium text-primary hover:bg-primary/5 p-2 rounded-md transition-colors"
+                  aria-label="Agendar consulta (WhatsApp)">
+                  <Phone className="w-4 h-4" aria-hidden="true" />
+                  <span>Agendar Consulta</span>
+                </a>
+                <Link to="/login" className="ml-2 p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors" aria-label="Login">
+                  <UserCircle className="w-5 h-5" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

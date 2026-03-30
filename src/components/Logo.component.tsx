@@ -1,4 +1,4 @@
-import { HeartPulse } from "lucide-react";
+import logo from "/icon.png";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
@@ -10,9 +10,7 @@ interface LogoProps {
 export const Logo = ({ className, iconClassName, textClassName }: LogoProps = {}) => {
   return (
     <div className={cn("flex items-center gap-2", className)}>
-      <div className={cn("flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10", iconClassName)}>
-        <HeartPulse className="h-6 w-6 text-primary" />
-      </div>
+      <img src={logo} alt="Logo" width={60} height={60} className={cn("w-15 h-15 rounded-full", iconClassName)} />
       <span className={cn("font-serif text-xl font-bold tracking-tight text-foreground", textClassName)}>
         Instituto Monaliza Tercetti
       </span>

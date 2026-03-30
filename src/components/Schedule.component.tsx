@@ -41,7 +41,7 @@ export const Schedule = () => {
               <CreditCard className="text-primary mt-0.5 shrink-0" size={18} />
               <div>
                 <p className="font-medium text-foreground text-sm">Convênios</p>
-                <p className="text-muted-foreground text-sm">Particular</p>
+                <p className="text-muted-foreground text-sm">Convênios e Particular</p>
               </div>
             </div>
           </div>
