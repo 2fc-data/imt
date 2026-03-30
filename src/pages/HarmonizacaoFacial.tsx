@@ -1,17 +1,18 @@
 import { PageLayout } from "@/components/PageLayout.component";
 import { ServiceCard } from "@/components/ServiceCard.component";
 import { motion } from "framer-motion";
+import { Smile } from "lucide-react";
 
 const servicos = [
-  { title: "Ácido Hialurônico", description: "Preenchimentos para hidratação, volume e contorno facial." },
-  { title: "Bioestimuladores", description: "Indução de colágeno com substâncias como Sculptra e Radiesse." },
-  { title: "Toxina Botulínica / Botox", description: "Relaxamento muscular para suavizar linhas de expressão." },
-  { title: "Colágeno e Cuidados Pós-Harmonização", description: "Protocolos que mantêm e otimizam resultados." },
-  { title: "Enzimas", description: "Redução de gordura localizada e tratamento de fibroses." },
-  { title: "Rinomodelação, Lábios e Queixo", description: "Correções específicas com técnicas não cirúrgicas." },
-  { title: "Nano Lift / Hidrolifting", description: "Lifting facial e hidratação profunda sem cortes." },
-  { title: "Hidroxiapatita", description: "Bioestimulador com efeito tensor e de preenchimento leve." },
-  { title: "Rejuvenescimento e Prevenção", description: "Combinação de tratamentos para retardar o envelhecimento." },
+  { icon: Smile, title: "Ácido Hialurônico", description: "Preenchimentos para hidratação, volume e contorno facial." },
+  { icon: Smile, title: "Bioestimuladores", description: "Indução de colágeno com substâncias como Sculptra e Radiesse." },
+  { icon: Smile, title: "Toxina Botulínica / Botox", description: "Relaxamento muscular para suavizar linhas de expressão." },
+  { icon: Smile, title: "Colágeno e Cuidados Pós-Harmonização", description: "Protocolos que mantêm e otimizam resultados." },
+  { icon: Smile, title: "Enzimas", description: "Redução de gordura localizada e tratamento de fibroses." },
+  { icon: Smile, title: "Rinomodelação, Lábios e Queixo", description: "Correções específicas com técnicas não cirúrgicas." },
+  { icon: Smile, title: "Nano Lift / Hidrolifting", description: "Lifting facial e hidratação profunda sem cortes." },
+  { icon: Smile, title: "Hidroxiapatita", description: "Bioestimulador com efeito tensor e de preenchimento leve." },
+  { icon: Smile, title: "Rejuvenescimento e Prevenção", description: "Combinação de tratamentos para retardar o envelhecimento." },
 ];
 
 export const HarmonizacaoFacial = () => {
@@ -34,7 +35,7 @@ export const HarmonizacaoFacial = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {servicos.map((s, i) => (
-              <ServiceCard key={s.title} title={s.title} description={s.description} index={i} />
+              <ServiceCard key={s.title} icon={s.icon} title={s.title} description={s.description} index={i} />
             ))}
           </div>
         </div>

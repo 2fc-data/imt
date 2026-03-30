@@ -1,15 +1,16 @@
 import { PageLayout } from "@/components/PageLayout.component";
 import { ServiceCard } from "@/components/ServiceCard.component";
 import { motion } from "framer-motion";
+import { Heart } from "lucide-react";
 
 const servicos = [
-  { title: "Bruxismo (Adulto e Infantil)", description: "Diagnóstico e tratamento com placas, agulhamento e terapias auxiliares." },
-  { title: "Clareamento Dental", description: "Técnicas modernas com mínimo desconforto e alta eficácia." },
-  { title: "DTM Articular e Muscular", description: "Tratamento de dores, estalos e disfunções na articulação temporomandibular." },
-  { title: "Extração do Siso, Implantes e Restaurações", description: "Procedimentos cirúrgicos e restauradores de alta precisão." },
-  { title: "Limpeza e Prevenção", description: "Profilaxia a cada 6 meses com orientações de higiene." },
-  { title: "Lentes em Resina", description: "Revestimento estético minimamente invasivo." },
-  { title: "Mordida e Correções Oclusais", description: "Avaliação funcional para reabilitação oral." },
+  { icon: Heart, title: "Bruxismo (Adulto e Infantil)", description: "Diagnóstico e tratamento com placas, agulhamento e terapias auxiliares." },
+  { icon: Heart, title: "Clareamento Dental", description: "Técnicas modernas com mínimo desconforto e alta eficácia." },
+  { icon: Heart, title: "DTM Articular e Muscular", description: "Tratamento de dores, estalos e disfunções na articulação temporomandibular." },
+  { icon: Heart, title: "Extração do Siso, Implantes e Restaurações", description: "Procedimentos cirúrgicos e restauradores de alta precisão." },
+  { icon: Heart, title: "Limpeza e Prevenção", description: "Profilaxia a cada 6 meses com orientações de higiene." },
+  { icon: Heart, title: "Lentes em Resina", description: "Revestimento estético minimamente invasivo." },
+  { icon: Heart, title: "Mordida e Correções Oclusais", description: "Avaliação funcional para reabilitação oral." },
 ];
 
 export const OdontologiaAvancada = () => {
@@ -32,7 +33,7 @@ export const OdontologiaAvancada = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {servicos.map((s, i) => (
-              <ServiceCard key={s.title} title={s.title} description={s.description} index={i} />
+              <ServiceCard key={s.title} icon={s.icon} title={s.title} description={s.description} index={i} />
             ))}
           </div>
         </div>

@@ -1,11 +1,11 @@
-import { Heart, Stethoscope, Syringe } from "lucide-react";
+import { Heart, CircuitBoard, Smile } from "lucide-react";
 import { useInView } from "../components/useInView";
 import { PageLayout } from "@/components/PageLayout.component";
 
 const highlights = [
   { icon: Heart, title: "Experiência Clínica", desc: "Anos de prática em tratamento odontológico." },
-  { icon: Stethoscope, title: "Ortodontista Especialista", desc: "Bioprogressiva e Autoligados com técnicas modernas." },
-  { icon: Syringe, title: "Harmonizadora facial", desc: "Procedimentos com produtos de última geração." },
+  { icon: CircuitBoard, title: "Ortodontista Especialista", desc: "Bioprogressiva e Autoligados com técnicas modernas." },
+  { icon: Smile, title: "Harmonizadora facial", desc: "Procedimentos com produtos de última geração." },
 ];
 
 export const Sobre = () => {

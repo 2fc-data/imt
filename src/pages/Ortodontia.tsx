@@ -1,15 +1,16 @@
 import { PageLayout } from "@/components/PageLayout.component";
 import { ServiceCard } from "@/components/ServiceCard.component";
 import { motion } from "framer-motion";
+import { CircuitBoard } from "lucide-react";
 
 const servicos = [
-  { title: "Aparelhos Convencionais e Invisíveis", description: "Opções estéticas e funcionais para diversas faixas etárias." },
-  { title: "Aparelho Lingual", description: "Correção discreta com bráquetes colocados na face interna dos dentes." },
-  { title: "Autoligados", description: "Aparelhos que dispensam ligaduras, com maior conforto e eficiência." },
-  { title: "Mini Implantes e Microparafusos IZC", description: "Ancoragem para movimentações dentárias mais complexas." },
-  { title: "Correção de Atresia Palatal, Mordida Aberta e Overbite", description: "Abordagem multidisciplinar para equilíbrio esquelético e funcional." },
-  { title: "Mesolifting Ortodôntico", description: "Técnica complementar com estímulo de colágeno durante o tratamento." },
-  { title: "Resina Composta Estratificada", description: "Restaurações estéticas com naturalidade e durabilidade." },
+  { icon: CircuitBoard, title: "Aparelhos Convencionais e Invisíveis", description: "Opções estéticas e funcionais para diversas faixas etárias." },
+  { icon: CircuitBoard, title: "Aparelho Lingual", description: "Correção discreta com bráquetes colocados na face interna dos dentes." },
+  { icon: CircuitBoard, title: "Autoligados", description: "Aparelhos que dispensam ligaduras, com maior conforto e eficiência." },
+  { icon: CircuitBoard, title: "Mini Implantes e Microparafusos IZC", description: "Ancoragem para movimentações dentárias mais complexas." },
+  { icon: CircuitBoard, title: "Correção de Atresia Palatal, Mordida Aberta e Overbite", description: "Abordagem multidisciplinar para equilíbrio esquelético e funcional." },
+  { icon: CircuitBoard, title: "Mesolifting Ortodôntico", description: "Técnica complementar com estímulo de colágeno durante o tratamento." },
+  { icon: CircuitBoard, title: "Resina Composta Estratificada", description: "Restaurações estéticas com naturalidade e durabilidade." },
 ];
 
 export const Ortodontia = () => {
@@ -32,7 +33,7 @@ export const Ortodontia = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {servicos.map((s, i) => (
-              <ServiceCard key={s.title} title={s.title} description={s.description} index={i} />
+              <ServiceCard key={s.title} icon={s.icon} title={s.title} description={s.description} index={i} />
             ))}
           </div>
         </div>
