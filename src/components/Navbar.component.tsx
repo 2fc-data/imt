@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone, UserCircle, Moon, Sun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/Logo.component";
-import { Login } from "@/pages/Login";
 
 const menuItems = [
   { label: "Início", path: "/" },
@@ -100,7 +99,7 @@ export const Navbar = () => {
 
         {/* Social & Contact */}
         <div className="hidden lg:flex items-center gap-3 ml-4 pl-4 border-l border-border">
-          <a href="https://instagram.com/dramonalizatercetti" target="_blank" rel="noopener noreferrer" 
+          <a href="https://instagram.com/dramonalizatercetti" target="_blank" rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors p-2 rounded-full" aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-instagram w-5 h-5" aria-hidden="true">
               <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
@@ -108,7 +107,7 @@ export const Navbar = () => {
               <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
             </svg>
           </a>
-          <a href="https://facebook.com/Monaliza-Tercetti-Pereira-100054277160262/" target="_blank" rel="noopener noreferrer" 
+          <a href="https://facebook.com/Monaliza-Tercetti-Pereira-100054277160262/" target="_blank" rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors p-2 rounded-full" aria-label="Facebook">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-facebook w-5 h-5" aria-hidden="true">
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
