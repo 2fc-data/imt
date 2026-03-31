@@ -9,7 +9,7 @@ export const Login = () => {
   useSEO({
     title: "Login | Instituto Monaliza Tercetti",
     description: "Acesse sua conta no Instituto Monaliza Tercetti.",
-    url: "https://monalizatarcetti.com.br/login"
+    url: "https://monalizatercetti.com.br/login"
   });
 
   const { email, setEmail, password, setPassword, isLoading, handleSubmit } = useLogin();

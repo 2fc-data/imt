@@ -1,4 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { HelmetProvider } from "react-helmet-async";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,16 +14,22 @@ import { OdontologiaAvancada } from "@/pages/OdontologiaAvancada";
 import { Ortodontia } from "@/pages/Ortodontia";
 import { Sobre } from "@/pages/Sobre";
 import { NotFound } from "@/pages/NotFound";
+import { ScrollToTop } from "@/components/ScrollToTop.component";
+
 
 const queryClient = new QueryClient();
 
 export const App = () => (
-  <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-    <QueryClientProvider client={queryClient}>
+  <HelmetProvider>
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <QueryClientProvider client={queryClient}>
+
       <TooltipProvider>
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
+
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
             <Route path="/esqueci-senha" element={<ForgotPassword />} />
@@ -35,6 +43,8 @@ export const App = () => (
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
-  </ThemeProvider>
+    </ThemeProvider>
+  </HelmetProvider>
+
 );
 

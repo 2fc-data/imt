@@ -19,7 +19,7 @@ export const Schedule = () => {
 
         <div className={`max-w-lg mx-auto mt-12 bg-card rounded-2xl p-8 sm:p-10 border border-border/50 shadow-lg shadow-primary/5 ${isVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "0.3s" }}>
           <a
-            href="https://wa.me/553597058234?text=Olá! Gostaria de agendar uma consulta."
+            href="https://wa.me/5535997058234?text=Olá! Gostaria de agendar uma consulta."
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Contato via WhatsApp"

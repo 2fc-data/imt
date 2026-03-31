@@ -2,11 +2,54 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { PageLayout } from "../components/PageLayout.component";
 import heroImage from "@/assets/clinic-hero.png";
-import { Phone } from "lucide-react";
+import { Heart, CircuitBoard, Phone, Smile } from "lucide-react";
 
 export const Index = () => {
   return (
-    <PageLayout>
+    <PageLayout
+      title="Dra. Monaliza Tercetti | Harmonização Facial e Ortodontia em Poços de Caldas"
+      description="Instituto Dra. Monaliza Tercetti - Especialista em Harmonização Facial, Ortodontia e Odontologia em Poços de Caldas, MG. Agende sua consulta."
+    >
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Instituto Dra. Monaliza Tercetti",
+          "image": "https://institutomonalizatercetti.com.br/icon.png",
+          "@id": "https://institutomonalizatercetti.com.br",
+          "url": "https://institutomonalizatercetti.com.br",
+          "telephone": "+5535997058234",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Dr. David Benedito Otoni, 277",
+            "addressLocality": "Poços de Caldas",
+            "addressRegion": "MG",
+            "postalCode": "37701-069",
+            "addressCountry": "BR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -21.7835221,
+            "longitude": -46.5610421
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "19:00"
+          },
+          "sameAs": [
+            "https://www.instagram.com/dra.monalizatercetti"
+          ]
+        })}
+      </script>
+
       {/* Hero */}
       <section className="min-h-screen flex items-center relative overflow-hidden bg-gradient-warm">
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-8 items-center">
@@ -29,7 +72,7 @@ export const Index = () => {
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Link
-                to="https://wa.me/553597058234?text=Olá! Gostaria de agendar uma consulta."
+                to="https://wa.me/5535997058234?text=Olá! Gostaria de agendar uma consulta."
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Contato via WhatsApp"
@@ -73,20 +116,24 @@ export const Index = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
+                icon: Smile,
                 title: "Harmonização Facial",
                 desc: "Tratamentos personalizados para equilíbrio e rejuvenescimento facial.",
                 link: "/harmonizacaoFacial",
               },
               {
-                title: "Odontologia Avançada",
-                desc: "Serviços clínicos com foco funcional, estético e preventivo.",
-                link: "/odontologiaAvancada",
-              },
-              {
+                icon: CircuitBoard,
                 title: "Ortodontia Especializada",
                 desc: "Tratamentos modernos para correção dentária e estrutura facial.",
                 link: "/ortodontia",
               },
+              {
+                icon: Heart,
+                title: "Odontologia Avançada",
+                desc: "Serviços clínicos com foco funcional, estético e preventivo.",
+                link: "/odontologiaAvancada",
+              }
+
             ].map((item, i) => (
               <motion.div
                 key={item.title}
@@ -98,6 +145,7 @@ export const Index = () => {
                   to={item.link}
                   className="block p-8 rounded-xl border border-border bg-background hover:border-primary/40 hover:shadow-xl transition-all duration-300 group h-full"
                 >
+                  <item.icon className="text-primary mb-4" size={24} aria-hidden="true" />
                   <h3 className="font-display text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
                     {item.title}
                   </h3>

@@ -15,7 +15,10 @@ const servicos = [
 
 export const OdontologiaAvancada = () => {
   return (
-    <PageLayout>
+    <PageLayout 
+      title="Odontologia Avançada e Estética | Instituto Monaliza Tercetti"
+      description="Serviços de Odontologia Avançada: Clareamento dental, DTM, Bruxismo, Implantes e Lentes em Resina em Poços de Caldas."
+    >
       <section className="min-h-screen py-12">
         <div className="container mx-auto px-4">
           <motion.div

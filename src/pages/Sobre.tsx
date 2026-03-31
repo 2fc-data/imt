@@ -12,7 +12,10 @@ export const Sobre = () => {
   const { ref, isVisible } = useInView();
 
   return (
-    <PageLayout>
+    <PageLayout 
+      title="Sobre a Dra. Monaliza Tercetti | Especialista em Ortodontia e Harmonização"
+      description="Conheça a trajetória da Dra. Monaliza Tercetti, especialista em Bioprogressiva, Autoligados e Harmonização Facial em Poços de Caldas."
+    >
       <section id="sobre" className="min-h-screen flex items-center bg-surface py-20 lg:py-32">
         <div ref={ref} className="container mx-auto px-4 lg:px-8">
           <div className={`max-w-3xl mx-auto text-center mb-16 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>

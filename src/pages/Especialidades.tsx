@@ -26,7 +26,10 @@ const cursos = [
 
 export const Especialidades = () => {
   return (
-    <PageLayout>
+    <PageLayout 
+      title="Especialidades e Capacitações | Instituto Monaliza Tercetti"
+      description="Confira as diversas especialidades e cursos de capacitação técnica da equipe do Instituto Monaliza Tercetti."
+    >
       <section className="min-h-screen py-12">
         <div className="container mx-auto px-4">
           <motion.div

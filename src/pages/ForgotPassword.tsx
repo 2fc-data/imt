@@ -10,7 +10,7 @@ export const ForgotPassword = () => {
   useSEO({
     title: "Recuperar Senha | Instituto Monaliza Tercetti",
     description: "Esqueceu sua senha? Recupere o acesso à sua conta do Instituto Monaliza Tercetti.",
-    url: "https://monalizatarcetti.com.br/esqueci-senha"
+    url: "https://monalizatercetti.com.br/esqueci-senha"
   });
 
   const { email, setEmail, isLoading, isSuccess, handleSubmit } = useForgotPassword();
