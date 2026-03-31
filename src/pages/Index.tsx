@@ -61,14 +61,13 @@ export const Index = () => {
             className="space-y-6 z-10"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight" style={{ textWrap: "balance" }}>
-              <span className="text-gradient-brand">Instituto Monaliza Tercetti</span>
+              <span className="text-gradient-brand">Harmonização Facial · Ortodontia · Odontologia</span>
             </h1>
             <p className="text-xl md:text-2xl font-display text-accent italic">
-              Harmonização Facial · Ortodontia · Odontologia
+              Excelência em tratamentos estéticos e odontológicos com tecnologia de ponta.
             </p>
             <p className="text-foreground/70 text-lg max-w-lg leading-relaxed">
-              Excelência em tratamentos estéticos e odontológicos com tecnologia de ponta
-              e uma equipe altamente especializada.
+              Equipe altamente especializada.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Link

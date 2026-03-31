@@ -22,7 +22,7 @@ export const Location = () => {
             Nossa Localização
           </h2>
           <p className="mt-6 text-muted-foreground text-lg">
-            Poços de Caldas - MG.
+            Poços de Caldas - MG
           </p>
         </div>
 
