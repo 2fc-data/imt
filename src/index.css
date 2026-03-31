@@ -65,7 +65,7 @@
   --popover: oklch(0.97 0.02 70);
   --popover-foreground: oklch(0.35 0.02 30);
 
-  --primary: oklch(0.52 0.18 350);
+  --primary: oklch(47.226% 0.15654 25.517);
   --primary-foreground: oklch(0.97 0.02 70);
 
   --secondary: oklch(0.88 0.04 70);
@@ -84,16 +84,16 @@
 
   --border: oklch(0.85 0.03 70);
   --input: oklch(0.85 0.03 70);
-  --ring: oklch(0.52 0.18 350);
+  --ring: oklch(47.226% 0.15654 25.517);
 
   --sidebar-background: oklch(0.95 0.03 70);
   --sidebar-foreground: oklch(0.35 0.02 30);
-  --sidebar-primary: oklch(0.52 0.18 350);
+  --sidebar-primary: oklch(47.226% 0.15654 25.517);
   --sidebar-primary-foreground: oklch(0.97 0.02 70);
   --sidebar-accent: oklch(0.88 0.04 70);
   --sidebar-accent-foreground: oklch(0.35 0.02 30);
   --sidebar-border: oklch(0.85 0.03 70);
-  --sidebar-ring: oklch(0.52 0.18 350);
+  --sidebar-ring: oklch(47.226% 0.15654 25.517);
 
 
   /* Chart Palette - Cores baseadas na nova paleta */
