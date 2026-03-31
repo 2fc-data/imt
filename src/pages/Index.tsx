@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { PageLayout } from "../components/PageLayout.component";
 import heroImage from "@/assets/clinic-hero.png";
 import { Heart, CircuitBoard, Phone, Smile } from "lucide-react";
+import { Manifesto } from "../components/Manifesto.component";
+import { Testimonials } from "../components/Testimonials.component";
+
 
 export const Index = () => {
   return (
@@ -108,6 +111,9 @@ export const Index = () => {
           </motion.div>
         </div>
       </section>
+      
+      <Manifesto />
+
 
       {/* Quick Links */}
       <section className="py-20 bg-card">
@@ -155,6 +161,9 @@ export const Index = () => {
           </div>
         </div>
       </section>
+
+      <Testimonials />
+
     </PageLayout>
   );
 };
