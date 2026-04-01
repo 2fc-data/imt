@@ -11,8 +11,8 @@ export const Index = () => {
   const hour = new Date().getHours();
   const greeting =
     hour >= 6 && hour < 12 ? "Bom dia!" :
-    hour >= 12 && hour < 18 ? "Boa tarde!" :
-    "Boa noite!";
+      hour >= 12 && hour < 18 ? "Boa tarde!" :
+        "Boa noite!";
 
   return (
     <PageLayout
@@ -154,7 +154,7 @@ export const Index = () => {
               >
                 <Link
                   to={item.link}
-                  className="block p-8 rounded-xl border border-border bg-background hover:border-primary/40 hover:shadow-xl transition-all duration-300 group h-full"
+                  className="block p-8 rounded-xl border border-border bg-destructive-foreground hover:border-primary/40 hover:shadow-xl transition-all duration-300 group h-full"
                 >
                   <item.icon className="text-primary mb-4" size={24} aria-hidden="true" />
                   <h3 className="font-display text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-3">

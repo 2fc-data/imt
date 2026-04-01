@@ -16,7 +16,7 @@ export const Sobre = () => {
       title="Sobre a Dra. Monaliza Tercetti | Especialista em Ortodontia e Harmonização"
       description="Conheça a trajetória da Dra. Monaliza Tercetti, especialista em Bioprogressiva, Autoligados e Harmonização Facial em Poços de Caldas."
     >
-      <section id="sobre" className="min-h-screen flex items-center bg-surface py-20 lg:py-32">
+      <section id="sobre" className="min-h-screen flex items-center bg-destructive-foreground py-20 lg:py-32">
         <div ref={ref} className="container mx-auto px-4 lg:px-8">
           <div className={`max-w-3xl mx-auto text-center mb-16 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
             <p className="text-primary font-medium text-sm tracking-widest uppercase mb-3">Sobre a Doutora</p>
@@ -26,7 +26,7 @@ export const Sobre = () => {
             <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
               Harmonizadora facial, Ortodontista especialista em Bioprogressiva, Autoligados.</p>
             <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
-              Atendimento completo, individualizado e humanizado para o seu bem-estar.
+              Atendimento completo e individualizado para o seu bem-estar.
             </p>
           </div>
 

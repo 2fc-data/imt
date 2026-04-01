@@ -25,14 +25,16 @@ const menuItems = [
 export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isDark, setIsDark] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
   useEffect(() => {
     const saved = localStorage.getItem("theme");
-    if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-      document.documentElement.classList.add("dark");
-    }
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const dark = saved === "dark" || (!saved && prefersDark);
+    document.documentElement.classList.toggle("dark", dark);
+    setIsDark(dark);
   }, []);
 
   return (
@@ -86,14 +88,18 @@ export const Navbar = () => {
           ))}
           <button
             onClick={() => {
-              const isDark = document.documentElement.classList.toggle("dark");
-              localStorage.setItem("theme", isDark ? "dark" : "light");
+              const dark = document.documentElement.classList.toggle("dark");
+              localStorage.setItem("theme", dark ? "dark" : "light");
+              setIsDark(dark);
             }}
             className="p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
             aria-label="Alternar tema"
           >
-            <Sun className="w-5 h-5 hidden dark:block" />
-            <Moon className="w-5 h-5 block dark:hidden" />
+            {isDark ? (
+              <Sun className="w-5 h-5" />
+            ) : (
+              <Moon className="w-5 h-5" />
+            )}
           </button>
         </div>
 

@@ -30,7 +30,7 @@ export const Location = () => {
           {locations.map((loc, i) => (
             <div
               key={loc.name}
-              className={`bg-card rounded-xl p-8 border border-border/50 shadow-sm hover:shadow-md transition-shadow duration-300 ${isVisible ? (i === 0 ? "animate-slide-in-left" : "animate-slide-in-right") : "opacity-0"}`}
+              className={`bg-destructive-foreground rounded-xl p-8 border border-border/50 shadow-sm hover:shadow-md transition-shadow duration-300 ${isVisible ? (i === 0 ? "animate-slide-in-left" : "animate-slide-in-right") : "opacity-0"}`}
               style={{ animationDelay: `${0.3 + i * 0.15}s` }}
             >
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-5">
