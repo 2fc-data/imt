@@ -15,7 +15,7 @@ export const Login = () => {
   const { email, setEmail, password, setPassword, isLoading, handleSubmit } = useLogin();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-surface p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-destructive-foreground p-4">
       <div className="w-full max-w-md bg-card rounded-2xl shadow-elegant border border-border/50 p-8 animate-fade-up">
         <div className="flex flex-col items-center text-center mb-8">
           <Link to="/">

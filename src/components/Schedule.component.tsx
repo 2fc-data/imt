@@ -23,7 +23,7 @@ export const Schedule = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Contato via WhatsApp"
-            className="flex items-center justify-center gap-3 bg-primary text-primary-foreground w-full py-4 rounded-xl text-lg font-semibold hover:bg-secondary transition-colors duration-300 shadow-lg shadow-primary/20"
+            className="flex items-center justify-center gap-3 bg-primary text-primary-foreground w-full py-4 rounded-xl text-lg font-semibold hover:bg-secondary hover:text-primary transition-colors duration-300 shadow-lg shadow-primary/20"
           >
             <Phone size={22} />
             (35) 99705-8234
