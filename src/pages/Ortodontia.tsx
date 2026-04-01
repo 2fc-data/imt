@@ -15,11 +15,11 @@ const servicos = [
 
 export const Ortodontia = () => {
   return (
-    <PageLayout 
+    <PageLayout
       title="Ortodontia Especializada | Aparelhos Invisíveis e Autoligados"
       description="Tratamentos ortodônticos modernos: Aparelhos autoligados, invisíveis (Invisalign), mini implantes e correção funcional."
     >
-      <section className="min-h-screen py-12">
+      <section className="min-h-screen py-12 bg-destructive-foreground">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

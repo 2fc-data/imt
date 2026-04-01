@@ -46,6 +46,15 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  /* Aliases faltantes — adicionados para funcionarem como classes Tailwind */
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-rose-soft: var(--rose-soft);
+  --color-chart-6: var(--chart-6);
+  --color-chart-7: var(--chart-7);
+  --color-chart-8: var(--chart-8);
+  --color-chart-9: var(--chart-9);
+  --color-chart-10: var(--chart-10);
+
   /* Responsive Breakpoints Reinforcement (Compensating for 16rem Sidebar) */
   --breakpoint-sm: 40rem; /* 640px */
   --breakpoint-md: 54rem; /* 864px (was 768px, +96px) */

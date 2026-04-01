@@ -30,7 +30,7 @@ export const Especialidades = () => {
       title="Especialidades e Capacitações | Instituto Monaliza Tercetti"
       description="Confira as diversas especialidades e cursos de capacitação técnica da equipe do Instituto Monaliza Tercetti."
     >
-      <section className="min-h-screen py-12">
+      <section className="min-h-screen py-12 bg-destructive-foreground">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

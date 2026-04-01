@@ -15,6 +15,7 @@ import { Ortodontia } from "@/pages/Ortodontia";
 import { Sobre } from "@/pages/Sobre";
 import { NotFound } from "@/pages/NotFound";
 import { ScrollToTop } from "@/components/ScrollToTop.component";
+import { WhatsAppButton } from "@/components/WhatsAppButton.component";
 
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ export const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <WhatsAppButton />
           <Routes>
 
             <Route path="/" element={<Index />} />

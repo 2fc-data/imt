@@ -27,7 +27,7 @@ const testimonials = [
 ];
 
 export const Testimonials = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: 'center',
     skipSnaps: false,
@@ -47,16 +47,16 @@ export const Testimonials = () => {
 
   useEffect(() => {
     if (!emblaApi) return;
-    
+
     onSelect();
     setScrollSnaps(emblaApi.scrollSnapList());
-    
+
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="py-24 bg-surface lg:py-32">
+    <section className="py-24 bg-surface lg:py-32 bg-destructive-foreground">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-primary font-medium text-sm tracking-widest uppercase mb-3">Histórias Reais</p>
@@ -69,15 +69,14 @@ export const Testimonials = () => {
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-4">
                   <motion.div
-                    animate={{ 
+                    animate={{
                       scale: selectedIndex === index ? 1.1 : 0.9,
                       opacity: selectedIndex === index ? 1 : 0.4,
                       y: selectedIndex === index ? 0 : 10
                     }}
                     transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
-                    className={`h-full bg-card p-8 md:p-10 rounded-3xl border border-border/50 shadow-2xl transition-all duration-300 flex flex-col items-center text-center ${
-                      selectedIndex === index ? "ring-2 ring-primary/20 shadow-primary/10" : "shadow-transparent"
-                    }`}
+                    className={`h-full bg-card p-8 md:p-10 rounded-3xl border border-border/50 shadow-2xl transition-all duration-300 flex flex-col items-center text-center ${selectedIndex === index ? "ring-2 ring-primary/20 shadow-primary/10" : "shadow-transparent"
+                      }`}
                   >
                     <Quote className={`mb-6 transition-colors duration-300 ${selectedIndex === index ? "text-primary" : "text-primary/10"}`} size={40} />
                     <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-8 italic">
@@ -117,11 +116,10 @@ export const Testimonials = () => {
               <button
                 key={index}
                 onClick={() => scrollTo(index)}
-                className={`h-2.5 transition-all duration-500 rounded-full ${
-                  selectedIndex === index 
-                    ? "w-8 bg-primary" 
-                    : "w-2.5 bg-primary/20 hover:bg-primary/40"
-                }`}
+                className={`h-2.5 transition-all duration-500 rounded-full ${selectedIndex === index
+                  ? "w-8 bg-primary"
+                  : "w-2.5 bg-primary/20 hover:bg-primary/40"
+                  }`}
                 aria-label={`Ir para slide ${index + 1}`}
               />
             ))}

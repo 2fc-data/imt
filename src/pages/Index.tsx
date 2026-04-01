@@ -8,6 +8,12 @@ import { Testimonials } from "../components/Testimonials.component";
 
 
 export const Index = () => {
+  const hour = new Date().getHours();
+  const greeting =
+    hour >= 6 && hour < 12 ? "Bom dia!" :
+    hour >= 12 && hour < 18 ? "Boa tarde!" :
+    "Boa noite!";
+
   return (
     <PageLayout
       title="Dra. Monaliza Tercetti | Harmonização Facial e Ortodontia em Poços de Caldas"
@@ -54,7 +60,7 @@ export const Index = () => {
       </script>
 
       {/* Hero */}
-      <section className="min-h-screen flex items-center relative overflow-hidden bg-gradient-warm">
+      <section className="min-h-screen flex items-center relative overflow-hidden bg-destructive-foreground">
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-8 items-center">
           {/* Text */}
           <motion.div
@@ -63,14 +69,14 @@ export const Index = () => {
             transition={{ duration: 0.7 }}
             className="space-y-6 z-10"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight" style={{ textWrap: "balance" }}>
-              <span className="text-gradient-brand">Harmonização Facial · Ortodontia · Odontologia</span>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight" style={{ textWrap: "balance" }}>
+              <span className="text-gradient-brand">{greeting}</span>
             </h1>
             <p className="text-xl md:text-2xl font-display text-accent italic">
-              Excelência em tratamentos estéticos e odontológicos com tecnologia de ponta.
+              Harmonização Facial · Ortodontia · Odontologia
             </p>
             <p className="text-foreground/70 text-lg max-w-lg leading-relaxed">
-              Equipe altamente especializada.
+              Excelência em tratamentos estéticos e odontológicos com tecnologia de ponta.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Link
@@ -79,7 +85,7 @@ export const Index = () => {
                 rel="noopener noreferrer"
                 aria-label="Contato via WhatsApp"
                 // className="bg-gradient-brand text-primary-foreground px-8 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity"
-                className="flex items-center justify-center bg-primary gap-3 text-primary-foreground px-8 py-3 rounded-xl text-lg font-semibold hover:bg-secondary transition-colors duration-300 shadow-lg shadow-primary/20"
+                className="flex items-center justify-center bg-primary gap-3 text-primary-foreground px-8 py-3 rounded-xl text-lg font-semibold hover:bg-secondary hover:text-primary transition-colors duration-300 shadow-lg shadow-primary/20"
               >
                 <Phone size={22} aria-hidden="true" />
                 (35) 99705-8234
@@ -111,7 +117,7 @@ export const Index = () => {
           </motion.div>
         </div>
       </section>
-      
+
       <Manifesto />
 
 

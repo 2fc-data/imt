@@ -17,11 +17,11 @@ const servicos = [
 
 export const HarmonizacaoFacial = () => {
   return (
-    <PageLayout 
+    <PageLayout
       title="Harmonização Facial em Poços de Caldas | Dra. Monaliza Tercetti"
       description="Tratamentos de Harmonização Facial: Botox, Ácido Hialurônico, Bioestimuladores e fios de PDO para rejuvenescimento natural."
     >
-      <section className="min-h-screen py-12">
+      <section className="min-h-screen py-12 bg-destructive-foreground">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

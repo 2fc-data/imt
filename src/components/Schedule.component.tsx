@@ -5,7 +5,7 @@ export const Schedule = () => {
   const { ref, isVisible } = useInView();
 
   return (
-    <section id="agendamento" className="min-h-screen flex items-center py-20 lg:py-32">
+    <section id="agendamento" className="min-h-screen flex items-center py-20 lg:py-32 bg-destructive-foreground">
       <div ref={ref} className="container mx-auto px-4 lg:px-8">
         <div className={`max-w-3xl mx-auto text-center ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
           <p className="text-primary font-medium text-sm tracking-widest uppercase mb-3">Agendamento</p>
